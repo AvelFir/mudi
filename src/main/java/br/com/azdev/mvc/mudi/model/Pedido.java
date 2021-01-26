@@ -12,27 +12,27 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
-    private BigDecimal valor;
+    private String nomeProduto;
+    private BigDecimal valorProduto;
     private LocalDate dataEntrega;
     private String urlProduto;
     private String urlImagem;
     private String descricao;
 
     public String getNome() {
-        return nome;
+        return nomeProduto;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nomeProduto = nome;
     }
 
     public BigDecimal getValor() {
-        return valor;
+        return valorProduto;
     }
 
     public void setValor(BigDecimal valor) {
-        this.valor = valor;
+        this.valorProduto = valor;
     }
 
     public LocalDate getDataEntrega() {
