@@ -26,13 +26,18 @@ public class PedidoController {
         return "pedido/formulario";
     }
 
-    @PostMapping("novo")
-    public String novo(@Valid RequisicaoNovoPedido requisicao, BindingResult result){
-        if(result.hasErrors()){
-            return "pedido/formulario";
-        }
-        Pedido pedido = requisicao.toPedido();
-        pedidoRepository.save(pedido);
-        return "redirect:/home";
+//    @PostMapping("novo")
+//    public String novo(@Valid RequisicaoNovoPedido requisicao, BindingResult result){
+//        if(result.hasErrors()){
+//            return "pedido/formulario";
+//        }
+//        Pedido pedido = requisicao.toPedido();
+//        pedidoRepository.save(pedido);
+//        return "redirect:/home";
+//    }
+    @RequestMapping("novo")
+    public String novo(){
+        System.out.println("teste");
+        return "pedido/formulario";
     }
 }
