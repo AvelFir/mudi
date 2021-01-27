@@ -23,11 +23,11 @@ public class HomeController {
     private PedidoRepository pedidoRepository;
 
     @GetMapping
-    public String home(Model model){
-//        User user = new User();
-//        user.setUsername(principal.getName());
-//        List<Pedido> pedidos = pedidoRepository.findAllByUser(user);
-//        model.addAttribute("pedidos", pedidos);
+    public String home(Model model, Principal principal){
+        User user = new User();
+        user.setUsername(principal.getName());
+        List<Pedido> pedidos = pedidoRepository.findAllByUser(user);
+        model.addAttribute("pedidos", pedidos);
         return "home";
     }
 
