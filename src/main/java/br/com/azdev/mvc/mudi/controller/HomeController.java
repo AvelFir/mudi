@@ -2,6 +2,7 @@ package br.com.azdev.mvc.mudi.controller;
 
 import br.com.azdev.mvc.mudi.model.Pedido;
 import br.com.azdev.mvc.mudi.model.StatusPedido;
+import br.com.azdev.mvc.mudi.model.User;
 import br.com.azdev.mvc.mudi.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Locale;
 
@@ -22,8 +24,10 @@ public class HomeController {
 
     @GetMapping
     public String home(Model model){
-        List<Pedido> pedidos = pedidoRepository.findAll();
-        model.addAttribute("pedidos", pedidos);
+//        User user = new User();
+//        user.setUsername(principal.getName());
+//        List<Pedido> pedidos = pedidoRepository.findAllByUser(user);
+//        model.addAttribute("pedidos", pedidos);
         return "home";
     }
 
