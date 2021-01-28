@@ -1,9 +1,11 @@
 package br.com.azdev.mvc.mudi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 public class Pedido {
     @Id
