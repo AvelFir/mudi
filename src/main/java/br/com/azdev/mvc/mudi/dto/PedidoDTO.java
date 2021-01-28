@@ -13,24 +13,87 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class PedidoDTO {
-    @JsonProperty
     private Long id;
-    @JsonProperty
     private String nomeProduto;
-    @JsonProperty
     private BigDecimal valorProduto;
-    @JsonProperty
     private LocalDate dataEntrega;
-    @JsonProperty
     private String urlProduto;
-    @JsonProperty
     private String urlImagem;
-    @JsonProperty
     private String descricao;
-    @JsonProperty
     private StatusPedido status;
-    @JsonProperty
     private String user;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
+    }
+
+    public BigDecimal getValorProduto() {
+        return valorProduto;
+    }
+
+    public void setValorProduto(BigDecimal valorProduto) {
+        this.valorProduto = valorProduto;
+    }
+
+    public LocalDate getDataEntrega() {
+        return dataEntrega;
+    }
+
+    public void setDataEntrega(LocalDate dataEntrega) {
+        this.dataEntrega = dataEntrega;
+    }
+
+    public String getUrlProduto() {
+        return urlProduto;
+    }
+
+    public void setUrlProduto(String urlProduto) {
+        this.urlProduto = urlProduto;
+    }
+
+    public String getUrlImagem() {
+        return urlImagem;
+    }
+
+    public void setUrlImagem(String urlImagem) {
+        this.urlImagem = urlImagem;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public StatusPedido getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusPedido status) {
+        this.status = status;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
 
     public  PedidoDTO(Pedido pedido){
         this.id = pedido.getId();
@@ -40,6 +103,15 @@ public class PedidoDTO {
         this.descricao = pedido.getDescricao();
         this.status = pedido.getStatus();
         this.user = pedido.getUser().getUsername();
+    }
+    public Pedido toPedido() {
+        Pedido pedido = new Pedido();
+        pedido.setNomeProduto(getNomeProduto());
+        pedido.setDescricao(getDescricao());
+        pedido.setUrlProduto(getUrlProduto());
+        pedido.setUrlImagem(getUrlImagem());
+        pedido.setStatus(StatusPedido.AGUARDANDO);
+        return pedido;
     }
 
     public PedidoDTO(){}

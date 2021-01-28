@@ -1,5 +1,6 @@
 package br.com.azdev.mvc.mudi.controller;
 
+import br.com.azdev.mvc.mudi.dto.PedidoDTO;
 import br.com.azdev.mvc.mudi.dto.RequisicaoNovoPedido;
 import br.com.azdev.mvc.mudi.model.Pedido;
 import br.com.azdev.mvc.mudi.repository.PedidoRepository;
@@ -26,12 +27,13 @@ public class PedidoController {
     UserRepository userRepository;
 
     @GetMapping("formulario")
-    public String formulario(RequisicaoNovoPedido requisicao){
+    public String formulario(PedidoDTO requisicao){
+        System.out.println("teste");
         return "pedido/formulario";
     }
 
     @PostMapping("novo")
-    public String novo(@Valid RequisicaoNovoPedido requisicao, BindingResult result){
+    public String novo(@Valid PedidoDTO requisicao, BindingResult result){
         if(result.hasErrors()){
             return "pedido/formulario";
         }
