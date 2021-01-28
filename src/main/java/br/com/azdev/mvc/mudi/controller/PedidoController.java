@@ -3,8 +3,10 @@ package br.com.azdev.mvc.mudi.controller;
 import br.com.azdev.mvc.mudi.dto.RequisicaoNovoPedido;
 import br.com.azdev.mvc.mudi.model.Pedido;
 import br.com.azdev.mvc.mudi.repository.PedidoRepository;
+import br.com.azdev.mvc.mudi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.bind.BindResult;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,6 +22,8 @@ import java.util.List;
 public class PedidoController {
     @Autowired
     PedidoRepository pedidoRepository;
+    @Autowired
+    UserRepository userRepository;
 
     @GetMapping("formulario")
     public String formulario(RequisicaoNovoPedido requisicao){
@@ -31,7 +35,9 @@ public class PedidoController {
         if(result.hasErrors()){
             return "pedido/formulario";
         }
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
         Pedido pedido = requisicao.toPedido();
+        pedido.setUser(userRepository.findByUsername(username));
         pedidoRepository.save(pedido);
         return "redirect:/home";
     }

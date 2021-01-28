@@ -50,7 +50,7 @@ public class RequisicaoNovoPedido {
 
     public Pedido toPedido() {
         Pedido pedido = new Pedido();
-        pedido.setNome(getNomeProduto());
+        pedido.setNomeProduto(getNomeProduto());
         pedido.setDescricao(getDescricao());
         pedido.setUrlProduto(getUrlProduto());
         pedido.setUrlImagem(getUrlImagem());

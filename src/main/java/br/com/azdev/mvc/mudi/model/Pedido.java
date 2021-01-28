@@ -22,22 +22,6 @@ public class Pedido {
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
-    public String getNome() {
-        return nomeProduto;
-    }
-
-    public void setNome(String nome) {
-        this.nomeProduto = nome;
-    }
-
-    public BigDecimal getValor() {
-        return valorProduto;
-    }
-
-    public void setValor(BigDecimal valor) {
-        this.valorProduto = valor;
-    }
-
     public LocalDate getDataEntrega() {
         return dataEntrega;
     }
@@ -92,5 +76,21 @@ public class Pedido {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
+    }
+
+    public BigDecimal getValorProduto() {
+        return valorProduto;
+    }
+
+    public void setValorProduto(BigDecimal valorProduto) {
+        this.valorProduto = valorProduto;
     }
 }
