@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
 @Entity
 public class Pedido {
     @Id
@@ -94,5 +94,20 @@ public class Pedido {
 
     public void setValorProduto(BigDecimal valorProduto) {
         this.valorProduto = valorProduto;
+    }
+
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "id=" + id +
+                ", nomeProduto='" + nomeProduto + '\'' +
+                ", valorProduto=" + valorProduto +
+                ", dataEntrega=" + dataEntrega +
+                ", urlProduto='" + urlProduto + '\'' +
+                ", urlImagem='" + urlImagem + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", status=" + status +
+                ", user=" + user +
+                '}';
     }
 }
