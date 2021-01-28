@@ -3,6 +3,8 @@ package br.com.azdev.mvc.mudi.repository;
 import br.com.azdev.mvc.mudi.model.Pedido;
 import br.com.azdev.mvc.mudi.model.StatusPedido;
 import br.com.azdev.mvc.mudi.model.User;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,5 +17,6 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 
     List<Pedido> findAllByUser(User user);
 
-    List<Pedido> findByStatus(StatusPedido statusPedido);
+    List<Pedido> findByStatus(StatusPedido statusPedido, Pageable sort);
+
 }
