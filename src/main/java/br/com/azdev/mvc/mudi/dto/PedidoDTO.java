@@ -9,15 +9,20 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class PedidoDTO {
+
     private Long id;
+    @NotBlank
     private String nomeProduto;
     private BigDecimal valorProduto;
     private LocalDate dataEntrega;
+    @NotBlank
     private String urlProduto;
+    @NotBlank
     private String urlImagem;
     private String descricao;
     private StatusPedido status;
